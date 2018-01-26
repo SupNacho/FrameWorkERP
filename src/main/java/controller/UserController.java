@@ -1,6 +1,8 @@
 package controller;
 
-import model.user.*;
+import model.user.Client;
+import model.user.FrameMaster;
+import model.user.Manager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,6 @@ public class UserController {
         if (ourInstance == null){
             synchronized (UserController.class){
                 ourInstance = new UserController();
-                return ourInstance;
             }
         }
         return ourInstance;
