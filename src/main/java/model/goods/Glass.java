@@ -1,6 +1,6 @@
 package model.goods;
 
-public interface Glass {
+public interface Glass extends Goods{
     int getWidth();
     int getHeight();
     int getThickness();

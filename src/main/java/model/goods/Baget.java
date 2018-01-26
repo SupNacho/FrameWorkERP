@@ -1,6 +1,6 @@
 package model.goods;
 
-public interface Baget {
+public interface Baget extends Goods{
    int getWidth();
    int getHeight();
    int getLength();
