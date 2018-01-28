@@ -1,4 +1,4 @@
 package model.goods;
 
-public class Baget {
+public class Frame {
 }
