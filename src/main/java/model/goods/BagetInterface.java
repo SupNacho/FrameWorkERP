@@ -1,14 +1,15 @@
 package model.goods;
 
-public interface Baget extends Goods{
+public interface BagetInterface extends GoodsInterface {
    int getWidth();
    int getHeight();
    int getLength();
    String getColor();
+   Baget.TYPE getType();
 
-   int setWidth();
-   int setHeight();
-   int setLength();
-   String setColor();
-
+   void setWidth(int width);
+   void setHeight(int height);
+   void setLength(int length);
+   void setColor(String color);
+   void setType(Baget.TYPE type);
 }

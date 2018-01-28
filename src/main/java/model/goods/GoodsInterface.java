@@ -1,10 +1,10 @@
 package model.goods;
 
-public interface Goods {
-    int getPrice();
-    int getCost();
+public interface GoodsInterface {
+    float getPrice();
+    float getCost();
 
-    int setPrice();
-    int setCost();
+    void setPrice(float price);
+    void setCost(float cost);
 
 }

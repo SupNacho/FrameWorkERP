@@ -1,12 +1,14 @@
 package model.goods;
 
-public interface Glass extends Goods{
+public interface GlassInterface extends GoodsInterface {
     int getWidth();
     int getHeight();
     int getThickness();
+    Glass.TYPE getType();
 
-    int setWidth();
-    int setHeight();
-    int setThickness();
+    void setWidth(int width);
+    void setHeight(int height);
+    void setThickness(int thickness);
+    void setType(Glass.TYPE type);
 
 }

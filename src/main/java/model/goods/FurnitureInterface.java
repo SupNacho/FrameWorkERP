@@ -1,5 +1,5 @@
 package model.goods;
 
-public interface Furniture extends Goods{
+public interface FurnitureInterface extends GoodsInterface {
 
 }

@@ -1,4 +1,5 @@
 package model.goods;
 
-public class Frame {
+public abstract class Frame {
+
 }
