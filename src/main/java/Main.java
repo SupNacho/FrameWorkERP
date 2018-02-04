@@ -1,4 +1,9 @@
+import controller.GoodsFacadeController;
 import controller.UserController;
+import model.goods.Background;
+import model.goods.Baget;
+import model.goods.Glass;
+import model.goods.Passepartout;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -11,10 +16,28 @@ public class Main {
         String phone;
         String adr;
         int discount;
+        int width;
+        int height;
         UserController uc = UserController.getInstance();
+        GoodsFacadeController gfc = new GoodsFacadeController(new Glass(), new Passepartout(),
+                new Baget(), new Background());
         while(input != "quit"){
             input = in.nextLine();
             switch (input){
+                case "create frame":
+                    System.out.println("CREATING FRAME:");
+                    System.out.println("Enter width: ");
+                    width = in.nextInt();
+                    System.out.println("Enter height: ");
+                    height = in.nextInt();
+                    gfc.createFrame(width, height);
+                    break;
+                case "get frame price":
+                    gfc.printPrice();
+                    break;
+                case "get frame cost":
+                    gfc.printCost();
+                    break;
                 case "add client":
                     System.out.println("ADDING CLIENT:");
                     System.out.println("Enter Name: ");

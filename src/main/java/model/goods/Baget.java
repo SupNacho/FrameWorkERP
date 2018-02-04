@@ -10,6 +10,14 @@ public class Baget implements BagetInterface {
     private TYPE type;
     private String color;
 
+    public Baget() {
+    }
+
+    public Baget(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
     @Override
     public int getWidth() {
         return width;

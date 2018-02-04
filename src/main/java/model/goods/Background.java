@@ -1,20 +1,18 @@
 package model.goods;
 
-public class Glass implements GlassInterface {
-
-    enum TYPE {NORMAL, MUSEUM, ACRYLIC}
+public class Background implements BackgroundInterface{
 
     private int width;
     private int height;
     private int thickness;
     private float price;
     private float cost;
-    private TYPE type;
+    private String color;
 
-    public Glass() {
+    public Background() {
     }
 
-    public Glass(int width, int height) {
+    public Background(int width, int height) {
         this.width = width;
         this.height = height;
     }
@@ -35,6 +33,11 @@ public class Glass implements GlassInterface {
     }
 
     @Override
+    public String getColor() {
+        return color;
+    }
+
+    @Override
     public void setWidth(int width) {
         this.width = width;
     }
@@ -47,6 +50,11 @@ public class Glass implements GlassInterface {
     @Override
     public void setThickness(int thickness) {
         this.thickness = thickness;
+    }
+
+    @Override
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
@@ -66,15 +74,6 @@ public class Glass implements GlassInterface {
 
     @Override
     public void setCost(float cost) {
-    }
-
-    @Override
-    public TYPE getType() {
-        return type;
-    }
-
-    @Override
-    public void setType(TYPE type) {
-        this.type = type;
+        this.cost = cost;
     }
 }
