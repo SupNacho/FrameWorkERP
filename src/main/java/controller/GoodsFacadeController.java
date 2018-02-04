@@ -20,7 +20,7 @@ public class GoodsFacadeController {
         glass.setWidth(width);
         glass.setHeight(height);
         glass.setPrice(3.0f);
-        glass.setCost(2.0f);
+        glass.setCost(1.1f);
         passepartout.setWidth(width);
         passepartout.setHeight(height);
         passepartout.setPrice(5.0f);
@@ -57,5 +57,9 @@ public class GoodsFacadeController {
         System.out.println("Baget: " + baget.getCost());
         System.out.println("Pasp: " + passepartout.getCost());
         System.out.println("Background: " + background.getCost());
+    }
+
+    public void getProfit(){
+        System.out.println("Profit from this frame: " + (frame.getPrice() - frame.getCost()));
     }
 }
