@@ -66,6 +66,7 @@ public class Glass implements GlassInterface {
 
     @Override
     public void setCost(float cost) {
+        this.cost = cost;
     }
 
     @Override
