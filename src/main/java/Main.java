@@ -38,6 +38,9 @@ public class Main {
                 case "get frame cost":
                     gfc.printCost();
                     break;
+                case "get profit":
+                    gfc.getProfit();
+                    break;
                 case "add client":
                     System.out.println("ADDING CLIENT:");
                     System.out.println("Enter Name: ");
