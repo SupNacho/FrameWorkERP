@@ -8,14 +8,11 @@ public class Frame implements GoodsInterface {
     private int height;
     private float price;
     private float cost;
-    private List<GoodsInterface> componentsList;
-
-    public Frame() {
-        componentsList = new ArrayList<>();
-    }
+    private List<GoodsInterface> componentsList = new ArrayList<>();
 
     public Frame(int width, int height) {
-        componentsList = new ArrayList<>();
+        this.width = width;
+        this.height = height;
     }
 
     public void addComponent(GoodsInterface component){
