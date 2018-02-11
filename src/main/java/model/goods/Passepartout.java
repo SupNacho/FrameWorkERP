@@ -8,6 +8,14 @@ public class Passepartout implements PassepartoutInterface {
     private float cost;
     private String color;
 
+    public Passepartout() {
+    }
+
+    public Passepartout(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
     @Override
     public int getWidth() {
         return width;

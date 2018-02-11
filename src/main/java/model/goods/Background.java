@@ -1,19 +1,18 @@
 package model.goods;
 
-public class Baget implements BagetInterface {
-    enum TYPE {WOOD, PLASTIC, ALUMINIUM}
+public class Background implements BackgroundInterface{
+
     private int width;
     private int height;
-    private int length;
+    private int thickness;
     private float price;
     private float cost;
-    private TYPE type;
     private String color;
 
-    public Baget() {
+    public Background() {
     }
 
-    public Baget(int width, int height) {
+    public Background(int width, int height) {
         this.width = width;
         this.height = height;
     }
@@ -29,6 +28,11 @@ public class Baget implements BagetInterface {
     }
 
     @Override
+    public int getThickness() {
+        return thickness;
+    }
+
+    @Override
     public String getColor() {
         return color;
     }
@@ -39,18 +43,13 @@ public class Baget implements BagetInterface {
     }
 
     @Override
-    public int getLength() {
-        return length;
-    }
-
-    @Override
     public void setHeight(int height) {
         this.height = height;
     }
 
     @Override
-    public void setLength(int length) {
-        this.length = length;
+    public void setThickness(int thickness) {
+        this.thickness = thickness;
     }
 
     @Override
@@ -76,15 +75,5 @@ public class Baget implements BagetInterface {
     @Override
     public void setCost(float cost) {
         this.cost = cost;
-    }
-
-    @Override
-    public TYPE getType() {
-        return type;
-    }
-
-    @Override
-    public void setType(TYPE type) {
-        this.type = type;
     }
 }

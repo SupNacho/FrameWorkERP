@@ -11,6 +11,14 @@ public class Glass implements GlassInterface {
     private float cost;
     private TYPE type;
 
+    public Glass() {
+    }
+
+    public Glass(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
     @Override
     public int getWidth() {
         return width;
@@ -58,6 +66,7 @@ public class Glass implements GlassInterface {
 
     @Override
     public void setCost(float cost) {
+        this.cost = cost;
     }
 
     @Override
