@@ -1,27 +1,31 @@
-import controller.GoodsFacadeController;
-import controller.UserController;
-import model.goods.Background;
-import model.goods.Baget;
-import model.goods.Glass;
-import model.goods.Passepartout;
+import controller.*;
+import model.goods.*;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    static Scanner in = new Scanner(System.in);
+    private static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
-        String input = "";
+        String input;
         String name;
         String phone;
         String adr;
+        Frame newFrame = null;
         int discount;
         int width;
         int height;
+        OrderController oc = new OrderController();
+        ManagerController mc = new ManagerController();
+        FrameMasterController fmc = new FrameMasterController();
+        oc.addManagerListener(mc);
+        oc.addMasterListener(fmc);
+        new Thread(mc).start();
+        new Thread(fmc).start();
         UserController uc = UserController.getInstance();
         GoodsFacadeController gfc = new GoodsFacadeController(new Glass(), new Passepartout(),
                 new Baget(), new Background());
-        while(input != "quit"){
+        while(true){
             input = in.nextLine();
             switch (input){
                 case "create frame":
@@ -30,7 +34,7 @@ public class Main {
                     width = in.nextInt();
                     System.out.println("Enter height: ");
                     height = in.nextInt();
-                    gfc.createFrame(width, height);
+                    newFrame = gfc.createFrame(width, height);
                     break;
                 case "get frame price":
                     gfc.printPrice();
@@ -82,8 +86,38 @@ public class Main {
                 case "get masters":
                     System.out.println(Arrays.toString(uc.getMasters().toArray()));
                     break;
+                case "create new order":
+                    if (newFrame != null) {
+                        oc.addOrder(newFrame);
+                    } else{
+                        System.out.println("Frame not created");
+                    }
+                    break;
+                case "set frame to master":
+                    oc.setOrderProcessing();
+                    break;
+                case "set frame ready":
+                    oc.setOrderCompleted();
+                    break;
+                case "ship frame":
+                    oc.setOrderShiped();
+                    break;
+                case "h":
+                    System.out.println("create frame - создать раму");
+                    System.out.println("get frame price - цена за раму для клиента");
+                    System.out.println("get frame cost - себестоимость рамы");
+                    System.out.println("get profit - прибыль с рамы");
+                    System.out.println("add client - добавить нового клиента");
+                    System.out.println("add manager - добавить менеджера");
+                    System.out.println("add master - добавить мастера");
+                    System.out.println("get clients / managers / masters - получмть список клиентов, менеджеров и мастеров");
+                    System.out.println("create new order - создать новый заказ из ранее созданой рамы");
+                    System.out.println("set frame to master - передать новый заказ в производство");
+                    System.out.println("set frame ready - сообщить о готовности рабы");
+                    System.out.println("ship frame - передать заказ в доставку");
+                    break;
                 case "quit":
-                    input = "quit";
+                    System.exit(0);
                     break;
                     default:
                         System.out.println("unknown command");
