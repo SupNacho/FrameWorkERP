@@ -17,17 +17,29 @@ public class OrderController extends OrderListener {
     }
 
     public void setOrderProcessing(){
-        processingOreders.add(newOreders.remove(0));
-        notifyMasters("Заказ поступил в работу.");
+        if (newOreders.size() == 0){
+            System.out.println("Нет новых заказов.");
+        } else {
+            processingOreders.add(newOreders.remove(0));
+            notifyMasters("Заказ поступил в работу.");
+        }
     }
 
     public void setOrderCompleted(){
-        completeOreders.add(processingOreders.remove(0));
-        notifyManager("Заказ готов.");
+        if (processingOreders.size() == 0){
+            System.out.println("Нет заказов в производстве заказов.");
+        } else {
+            completeOreders.add(processingOreders.remove(0));
+            notifyManager("Заказ готов.");
+        }
     }
 
     public void setOrderShiped(){
-        shipedOreders.add(completeOreders.remove(0));
-        notifyManager("Заказ доставлен.");
+        if (completeOreders.size() == 0){
+            System.out.println("Нет завершенных заказов.");
+        } else {
+            shipedOreders.add(completeOreders.remove(0));
+            notifyManager("Заказ доставлен.");
+        }
     }
 }
